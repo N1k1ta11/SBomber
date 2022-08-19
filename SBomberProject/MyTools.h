@@ -70,6 +70,7 @@ namespace MyTools {
 		void __fastcall WriteToLog(const std::string& str, double d) override;
 
 	private:
+		static int num;
 		FileLoggerSingleton() {};
 		FileLoggerSingleton(FileLoggerSingleton& root) = delete;
 		FileLoggerSingleton& operator = (const FileLoggerSingleton&) = delete;

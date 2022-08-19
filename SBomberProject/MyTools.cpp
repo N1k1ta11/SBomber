@@ -1,4 +1,3 @@
-
 #include <conio.h>
 #include <windows.h>
 #include <stdint.h>
@@ -83,6 +82,8 @@ namespace MyTools {
         }
     }
 
+    int FileLoggerSingleton::num = 1;
+
     string GetCurDateTime()
     {
         auto cur = std::chrono::system_clock::now();
@@ -97,7 +98,8 @@ namespace MyTools {
     {
         if (logOut.is_open())
         {
-            logOut << GetCurDateTime() << " - " << str << endl;
+            logOut <<to_string(num)<<" "<< GetCurDateTime() << " - " << str << endl;
+            num++;
         }
     }
 
@@ -105,7 +107,8 @@ namespace MyTools {
     {
         if (logOut.is_open())
         {
-            logOut << GetCurDateTime() << " - " << str << n << endl;
+            logOut << to_string(num) << " " << GetCurDateTime() << " - " << str << n << endl;
+            num++;
         }
     }
 
@@ -113,7 +116,8 @@ namespace MyTools {
     {
         if (logOut.is_open())
         {
-            logOut << GetCurDateTime() << " - " << str << d << endl;
+            logOut << to_string(num) << " " << GetCurDateTime() << " - " << str << d << endl;
+            num++;
         }
     }
 
